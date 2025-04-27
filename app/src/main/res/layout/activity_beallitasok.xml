@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/gray"
+    tools:context=".BeallitasokActivity">
+
+    <!-- Navigációs spinner (a navigációhoz, saját dizájnnal) -->
+    <Spinner
+        android:id="@+id/lenyilo_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/spinner_bg"
+        android:spinnerMode="dropdown"
+        android:forceDarkAllowed="false"
+        android:popupBackground="@drawable/spinner_lenyitott_bg" />
+
+    <!-- Betűméret gomb -->
+    <Button
+        android:id="@+id/betumeret_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Betűméret"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@android:color/white"
+        android:textColor="@android:color/black" />
+
+    <!-- Jelszó változtatás gomb -->
+    <Button
+        android:id="@+id/jelszo_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jelszó változtatás"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@android:color/white"
+        android:textColor="@android:color/black" />
+
+    <!-- Profil törlése gomb -->
+    <Button
+        android:id="@+id/profil_torles_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profil törlése"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@android:color/white"
+        android:textColor="@android:color/black" />
+
+    <!-- Pénzügyi adatok törlése gomb -->
+    <Button
+        android:id="@+id/penzugyi_adatok_torles_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pénzügyi adatok törlése"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@android:color/white"
+        android:textColor="@android:color/black" />
+
+</LinearLayout>

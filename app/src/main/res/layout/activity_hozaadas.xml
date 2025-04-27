@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:background="@color/gray"
+        android:fitsSystemWindows="true"
+        tools:context=".YourOtherActivity">
+
+        <!-- Tranzakció típus spinner (kiadás/bevétel) -->
+        <Spinner
+            android:id="@+id/tranzakcioTipusSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/spinner_bg"
+            android:spinnerMode="dropdown"
+            android:forceDarkAllowed="false"
+            android:popupBackground="@drawable/spinner_lenyitott_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Összeg input (ugyanúgy, mint a leírás mező) -->
+        <EditText
+            android:id="@+id/osszegInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Összeg"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:backgroundTint="@android:color/black"
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tranzakcioTipusSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Kategóriák spinner helyettesítése egy Space elemmel -->
+        <Space
+            android:id="@+id/kategoriakPlaceholder"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@id/osszegInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- HozzaadasGorgetesGridView a kategóriákhoz és ikonjaikhoz -->
+        <com.example.szemelyes_penzugyi_menedzser.HozzaadasGorgetesGridView
+            android:id="@+id/hozzaadasGorgetesGridView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="4dp"
+            android:columnWidth="80dp"
+            android:gravity="center"
+            android:horizontalSpacing="16dp"
+            android:numColumns="3"
+            android:verticalSpacing="16dp"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/kategoriakPlaceholder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Leírás input -->
+        <EditText
+            android:id="@+id/leirasInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Leírás"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:backgroundTint="@android:color/black"
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@id/hozzaadasGorgetesGridView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- DatePicker konténer: középre igazított -->
+        <FrameLayout
+            android:id="@+id/datePickerContainer"
+            android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/leirasInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+            android:theme="@style/BlackDatePickerTheme" />
+    </FrameLayout>
+
+    <!-- Mentés gomb: fehér háttér, fekete szöveg -->
+    <Button
+        android:id="@+id/mentesGomb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mentés"
+        android:backgroundTint="@android:color/white"
+        android:textColor="@android:color/black"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/datePickerContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Dummy nézet a scrollozás biztosításához -->
+    <View
+        android:id="@+id/dummyView"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/mentesGomb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </android.widget.ScrollView>

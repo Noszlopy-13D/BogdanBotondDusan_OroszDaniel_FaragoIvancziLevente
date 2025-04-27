@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kategoriakLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/gray"
+    tools:context=".Kategoriak">
+
+    <!-- Lenyíló menü (spinner) a navigációhoz -->
+    <Spinner
+        android:id="@+id/lenyilo_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/spinner_bg"
+        android:spinnerMode="dropdown"
+        android:forceDarkAllowed="false"
+        android:popupBackground="@drawable/spinner_lenyitott_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Időszak választó sor -->
+    <LinearLayout
+        android:id="@+id/időszakVáltó"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/lenyilo_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/NapFelirat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nap"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/HetFelirat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hét"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/HonapFelirat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hónap"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/EvFelirat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Év"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+    <!-- Egyedi időszak kiválasztó sor -->
+    <LinearLayout
+        android:id="@+id/idoszakKivalaszto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/időszakVáltó"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Bal oldali nyíl -->
+        <ImageButton
+            android:id="@+id/arrowBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/arrow_left"
+            android:scaleType="fitCenter"
+            android:contentDescription="Vissza"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <!-- Egyedi időszak spinner: a szélessége csak a benne lévő szöveghez igazodik -->
+        <Spinner
+            android:id="@+id/idoszakValasztoSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/spinner_bg"
+            android:spinnerMode="dropdown"
+            android:forceDarkAllowed="false"
+            android:popupBackground="@drawable/spinner_lenyitott_bg" />
+
+        <!-- Jobb oldali nyíl -->
+        <ImageButton
+            android:id="@+id/arrowForward"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/arrow_right"
+            android:scaleType="fitCenter"
+            android:contentDescription="Előre"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+
+    <!-- Üzenet, ha nincs adat -->
+    <TextView
+        android:id="@+id/noDataTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nincs adat a kiválasztott időszakra"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/idoszakKivalaszto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Összegző adatok: összbevétel és összkiadás -->
+    <LinearLayout
+        android:id="@+id/osszegzoAdatok"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/noDataTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/totalIncomeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Összbevétel: 0 Ft"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/totalExpenseTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Összkiadás: 0 Ft"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:gravity="end"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- ListView a kategóriák megjelenítésére -->
+    <ListView
+        android:id="@+id/kategoriakListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        app:layout_constraintTop_toBottomOf="@id/osszegzoAdatok"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ujKategoriaHozzaadasa" />
+
+    <!-- Gomb: Új kategória hozzáadása - fehér háttér -->
+    <Button
+        android:id="@+id/ujKategoriaHozzaadasa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Új kategória hozzáadása"
+        android:textColor="@android:color/black"
+        android:backgroundTint="@android:color/white"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
